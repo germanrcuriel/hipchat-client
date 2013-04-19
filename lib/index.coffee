@@ -72,5 +72,4 @@ class HipChat
           cb true
 
 
-module.exports = (auth_token) ->
-  new Hipchat auth_token
+module.exports = Hipchat
