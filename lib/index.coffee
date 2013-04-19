@@ -26,7 +26,12 @@ class HipChat
         if !res.ok
           cb false
         else
-          cb user.email for user in res.body.users when user.mention_name is name
+          email = user.email for user in res.body.users when user.mention_name is name
+
+          if email
+            cb email
+          else
+            cb false
 
   getRoomByName: (name, cb) ->
     unless name

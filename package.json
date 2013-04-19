@@ -1,7 +1,7 @@
 {
   "name": "hipchat-client",
   "description": "Another Hipchat API Client",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "license": "MIT",
   "keywords": [
