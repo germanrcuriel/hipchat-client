@@ -1,0 +1,24 @@
+{
+  "name": "hipchat-client",
+  "description": "Another Hipchat API Client",
+  "version": "0.0.1",
+  "author": "Germán Robledo <germanrcuriel@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "hipchat",
+    "api",
+    "client"
+  ],
+  "main": "./lib/hipchat-client.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/germix/hipchat-client.git"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "superagent": "*"
+  }
+}
