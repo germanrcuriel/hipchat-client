@@ -12,7 +12,7 @@
     "node": ">= 0.6"
   },
   "scripts": {
-    "build": "_coffee -c lib/",
+    "build": "coffee -c lib/",
     "clean": "rm lib/*.js",
     "prepublish": "npm run build"
   },
