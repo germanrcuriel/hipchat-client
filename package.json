@@ -1,7 +1,7 @@
 {
   "name": "hipchat-client",
   "description": "Another Hipchat API Client",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -9,7 +9,7 @@
     "api",
     "client"
   ],
-  "main": "./lib/hipchat-client.js",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/germix/hipchat-client.git"
