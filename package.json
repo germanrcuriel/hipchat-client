@@ -1,7 +1,7 @@
 {
   "name": "hipchat-client",
   "description": "Another Hipchat API Client",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "main": "./lib",
   "dependencies": {
@@ -24,6 +24,6 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/germix/hipchat-client.git"
+    "url": "git://github.com/germanrcuriel/hipchat-client.git"
   }
 }
