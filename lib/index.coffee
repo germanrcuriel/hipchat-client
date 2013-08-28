@@ -64,7 +64,7 @@ class HipChat
       auth_token: @options.token
       from: params.from or @options.message.from,
       color: params.color or @options.message.color,
-      notify: params.notify or @options.message.notify,
+      notify: params.notify ? @options.message.notify,
 
     request
       .post(@options.url + 'v1/rooms/message')
