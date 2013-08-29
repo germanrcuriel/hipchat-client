@@ -11,7 +11,8 @@ class HipChat
       message:
         from: 'JIRA',
         color: 'yellow',
-        notify: 1
+        notify: 1,
+        message_format: 'html'
 
   getMailByMentionName: (name, cb) ->
     unless name
@@ -65,6 +66,7 @@ class HipChat
       from: params.from or @options.message.from,
       color: params.color or @options.message.color,
       notify: params.notify ? @options.message.notify,
+      message_format: params.message_format or @options.message.message_format
 
     request
       .post(@options.url + 'v1/rooms/message')
