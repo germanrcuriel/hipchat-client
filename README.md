@@ -7,27 +7,27 @@ A HipChat Client
 ### Installation
 
 	$ npm install hipchat-client
-	
+
 ### Usage
 
 	var HipchatClient = require('hipchat-client');
-	
+
 ##### Constructor
-	
+
 	var HipChat = new HipchatClient(auth_token);
-	
+
 ##### Get user email by mention name
 
 	HipChat.getMailByMentionName('mention_name', function (email) {
 	  console.log(email);
 	});
-	
+
 ##### Get room id by room name
 
 	HipChat.getRoomByName('room_name', function (id) {
 	  console.log(id);
 	});
-	
+
 ##### Send message to a room
 
 	var message = "<a href='http://hipchat.com'>HipChat</a>";
@@ -40,7 +40,7 @@ A HipChat Client
 	HipChat.sendRoomMessage(message, room_id, params, function (success) {
 	  console.log(success);
 	});
-	
+
 ##### Example: Send Message to a Room without room_id
 
 	HipChat.getRoomByName('room_name', function (id) {
@@ -55,7 +55,17 @@ A HipChat Client
 	    console.log(success);
 	  });
 	});
-	
+
+
+## Changelog
+
+### v0.0.9
+
+- Add message format to sendRoomMessage method (default to 'html').
+
+### v0.0.8
+
+- Fix a bug comparing in sendMessageRoom method.
 
 ## MIT License
 
