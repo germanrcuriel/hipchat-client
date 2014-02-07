@@ -3,58 +3,59 @@ hipchat-client
 
 A HipChat Client
 
+[![NPM](https://nodei.co/npm/hipchat-client.png?downloads=true&stars=true)](https://nodei.co/npm/hipchat-client/)
 
 ### Installation
 
-	$ npm install hipchat-client
+    $ npm install hipchat-client
 
 ### Usage
 
-	var HipchatClient = require('hipchat-client');
+    var HipchatClient = require('hipchat-client');
 
 ##### Constructor
 
-	var HipChat = new HipchatClient(auth_token);
+    var HipChat = new HipchatClient(auth_token);
 
 ##### Get user email by mention name
 
-	HipChat.getMailByMentionName('mention_name', function (email) {
-	  console.log(email);
-	});
+    HipChat.getMailByMentionName('mention_name', function (email) {
+      console.log(email);
+    });
 
 ##### Get room id by room name
 
-	HipChat.getRoomByName('room_name', function (id) {
-	  console.log(id);
-	});
+    HipChat.getRoomByName('room_name', function (id) {
+      console.log(id);
+    });
 
 ##### Send message to a room
 
-	var message = "<a href='http://hipchat.com'>HipChat</a>";
-	var params = {
-	  from: 'HipChat',
-	  color: 'yellow',
-	  notify: 1
-	};
+    var message = "<a href='http://hipchat.com'>HipChat</a>";
+    var params = {
+      from: 'HipChat',
+      color: 'yellow',
+      notify: 1
+    };
 
-	HipChat.sendRoomMessage(message, room_id, params, function (success) {
-	  console.log(success);
-	});
+    HipChat.sendRoomMessage(message, room_id, params, function (success) {
+      console.log(success);
+    });
 
 ##### Example: Send Message to a Room without room_id
 
-	HipChat.getRoomByName('room_name', function (id) {
-	  var message = "<a href='http://hipchat.com'>HipChat</a>";
-	  var params = {
-	    from: 'HipChat',
-	    color: 'yellow',
-	    notify: 1
-	  };
+    HipChat.getRoomByName('room_name', function (id) {
+      var message = "<a href='http://hipchat.com'>HipChat</a>";
+      var params = {
+        from: 'HipChat',
+        color: 'yellow',
+        notify: 1
+      };
 
-	  HipChat.sendRoomMessage(message, id, params, function (success) {
-	    console.log(success);
-	  });
-	});
+      HipChat.sendRoomMessage(message, id, params, function (success) {
+        console.log(success);
+      });
+    });
 
 
 ## Changelog
