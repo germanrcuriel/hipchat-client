@@ -49,6 +49,38 @@ class HipChat
         else
           cb room.room_id for room in res.body.rooms when room.name is name
 
+  getRoomIdByJid: (jid, cb) ->
+    request
+      .get(@options.url + 'v1/rooms/list')
+      .query({auth_token: @options.token})
+      .end (res) ->
+        if !res.ok
+          cb false
+        else
+          room_id = room.room_id for room in res.body.rooms when room.xmpp_jid is jid
+          cb room_id
+
+  getRoomParticipantIds: (room_id, cb) ->
+    request
+      .get(@options.url + 'v1/rooms/show')
+      .query( {room_id: room_id, auth_token: @options.token} )
+      .end (res) ->
+        if !res.ok
+          cb false
+        else
+          ids = (p.user_id for p in res.body.room.participants)
+          cb ids
+
+  getUsers: (cb) ->
+    request
+      .get(@options.url + 'v1/users/list')
+      .query( {auth_token: @options.token} )
+      .end (res) ->
+        if !res.ok
+          cb false
+        else
+          cb res.body.users
+
   sendRoomMessage: (message, room_id, params, cb) ->
     unless message
       return false
