@@ -29,6 +29,28 @@ A HipChat Client
       console.log(id);
     });
 
+##### Get room id by room Jid
+
+    HipChat.getRoomByIdByJid('123_room@conf.hipchat.com', function (id)) {
+      console.log(id);
+    });
+
+##### Get list of room participant Ids
+
+    HipChat.getRoomParticipantIds(room_api_id, function (ids) {
+      for (var i=0; i < ids.length; i++) {
+        console.log( ids[i] );
+      }
+    });
+
+##### Get list of all users in your account
+
+    HipChat.getUsers( function (users) {
+      for (var i=0; i < users.length; i++) {
+        console.log( users[i].name );
+      }
+    });
+
 ##### Send message to a room
 
     var message = "<a href='http://hipchat.com'>HipChat</a>";
