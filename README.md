@@ -87,6 +87,10 @@ A HipChat Client
 
 ## Changelog
 
+### v0.1.1
+
+- Updated the README with some badges
+
 ### v0.1.0
 
 - Add `getRoomByIdByJid`, `getRoomParticipantIds`, `getUsers` methods.
