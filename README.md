@@ -3,6 +3,11 @@ hipchat-client
 
 A HipChat Client
 
+[![Dependency Status](https://david-dm.org/germanrcuriel/hipchat-client.svg)](https://david-dm.org/germanrcuriel/hipchat-client)&nbsp;
+[![devDependency Status](https://david-dm.org/germanrcuriel/hipchat-client/dev-status.svg)](https://david-dm.org/germanrcuriel/hipchat-client#info=devDependencies)&nbsp;
+[![NPM Version](http://img.shields.io/npm/v/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
+[![Package downloads](http://img.shields.io/npm/dm/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)
+
 [![NPM](https://nodei.co/npm/hipchat-client.png?downloads=true&stars=true)](https://nodei.co/npm/hipchat-client/)
 
 ### Installation
@@ -39,15 +44,15 @@ A HipChat Client
 
     HipChat.getRoomParticipantIds(room_api_id, function (ids) {
       for (var i=0; i < ids.length; i++) {
-        console.log( ids[i] );
+        console.log(ids[i]);
       }
     });
 
 ##### Get list of all users in your account
 
-    HipChat.getUsers( function (users) {
+    HipChat.getUsers(function (users) {
       for (var i=0; i < users.length; i++) {
-        console.log( users[i].name );
+        console.log(users[i].name);
       }
     });
 
@@ -81,6 +86,10 @@ A HipChat Client
 
 
 ## Changelog
+
+### v0.1.0
+
+- Add `getRoomByIdByJid`, `getRoomParticipantIds`, `getUsers` methods.
 
 ### v0.0.9
 
