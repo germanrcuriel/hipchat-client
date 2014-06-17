@@ -26,8 +26,17 @@ class BaseClass
       else
         callback @throwError res.body
 
-  validate: (options = {}, validation = []) ->
-    validation.forEach (value) ->
-      throw new Error "Missing #{value} parameter." unless options[value]
+  validate:
+    obj: (options = {}, validation = []) ->
+      validation.forEach (value) ->
+        throw new Error "Missing #{value} parameter." unless options[value]
+
+    str: (options = '') ->
+      throw new Error "Missing parameter." unless options
+
+  select: (collection = [], param = {}) ->
+    property = Object.keys(param)[0]
+    selected = item for item in collection when item[property] is param[property]
+    selected or {}
 
 module.exports = BaseClass
