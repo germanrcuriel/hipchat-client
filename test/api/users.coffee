@@ -7,9 +7,11 @@ describe 'Users resource', =>
 
   @data =
     user_id: 1
-    email: 'new@company.com'
-    name: 'New Guy'
+    email: 'pete@hipchat.com'
+    name: 'Peter Curley'
+    mention_name: 'pete'
     error: /^Missing/
+    not_valid: /possibility/
 
   beforeEach =>
     @users = new Users
@@ -47,7 +49,7 @@ describe 'Users resource', =>
         res.should.be.exactly @fixtures.delete
 
     it 'throws an error when a required param is missing', =>
-      ( => @users.create()).should.throw @data.error
+      ( => @users.delete()).should.throw @data.error
 
   describe '#list', =>
     it 'returns the users', =>
@@ -68,7 +70,7 @@ describe 'Users resource', =>
         res.should.be.exactly @fixtures.show
 
     it 'throws an error when a required param is missing', =>
-      ( => @users.create()).should.throw @data.error
+      ( => @users.show()).should.throw @data.error
 
   describe '#undelete', =>
     it 'returns the undeleted status', =>
@@ -81,7 +83,7 @@ describe 'Users resource', =>
         res.should.be.exactly @fixtures.undelete
 
     it 'throws an error when a required param is missing', =>
-      ( => @users.create()).should.throw @data.error
+      ( => @users.undelete()).should.throw @data.error
 
   describe '#update', =>
     it 'returns the updated user', =>
@@ -94,4 +96,48 @@ describe 'Users resource', =>
         res.should.be.exactly @fixtures.update
 
     it 'throws an error when a required param is missing', =>
-      ( => @users.create()).should.throw @data.error
+      ( => @users.update()).should.throw @data.error
+
+  describe '#getByMentionName', =>
+    it 'returns the user', =>
+      req = sinon.stub @users, 'request'
+      req.yields null, @fixtures.list
+
+      @users.getByMentionName @data.mention_name, null, (err, res) =>
+        res.should.be.eql user: @fixtures.list.users[1]
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.getByMentionName()).should.throw @data.error
+
+  describe '#getByName', =>
+    it 'returns the user', =>
+      req = sinon.stub @users, 'request'
+      req.yields null, @fixtures.list
+
+      @users.getByName @data.name, null, (err, res) =>
+        res.should.be.eql user: @fixtures.list.users[1]
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.getByName()).should.throw @data.error
+
+  describe '#getByEmail', =>
+    it 'returns the user', =>
+      req = sinon.stub @users, 'request'
+      req.yields null, @fixtures.list
+
+      @users.getByEmail @data.email, null, (err, res) =>
+        res.should.be.eql user: @fixtures.list.users[1]
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.getByEmail()).should.throw @data.error
+
+  describe '#getByStatus', =>
+    it 'returns the users filtered by status', =>
+      req = sinon.stub @users, 'request'
+      req.yields null, @fixtures.list
+
+      @users.getByStatus 'offline', null, (err, res) =>
+        res.should.be.eql users: [ @fixtures.list.users[1] ]
+
+    it 'throws an error when status isn\'t a possibility', =>
+      ( => @users.getByStatus()).should.throw @data.not_valid

@@ -8,7 +8,7 @@ class BaseClass
     {error} = error
     new Error "#{error.code} (#{error.type}) - #{error.message}"
 
-  request: (method, url, params, callback) ->
+  request: (method = 'GET', url = '', params = {}, callback) ->
     params.auth_token = @hipchat.apiKey
 
     xhr = request[method.toLowerCase()] "#{@hipchat.host}#{url}"
@@ -30,13 +30,27 @@ class BaseClass
     obj: (options = {}, validation = []) ->
       validation.forEach (value) ->
         throw new Error "Missing #{value} parameter." unless options[value]
+      true
 
-    str: (options = '') ->
-      throw new Error "Missing parameter." unless options
+    str: (param = '') ->
+      throw new Error "Missing parameter." unless param
+      true
 
-  select: (collection = [], param = {}) ->
+    inclusion: (param = '', possibilities) ->
+      unless param in possibilities
+        throw new Error "#{param} isn't a possibility (#{possibilities})"
+      true
+
+  select: (collection = [], param = {}, type = 'one') ->
+    @validate.str type, [ 'one', 'all' ]
+
     property = Object.keys(param)[0]
-    selected = item for item in collection when item[property] is param[property]
-    selected or {}
+    selected = (item for item in collection when item[property] is param[property])
+
+    if selected.length
+      return selected[0] if type is 'one'
+      return selected if type is 'all'
+    else
+      {}
 
 module.exports = BaseClass
