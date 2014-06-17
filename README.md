@@ -25,7 +25,7 @@ hipchat.api.rooms.message({
 ```sh
 $ npm install hipchat-client
 ```
-      
+
 ## API and documentation
 
   - Rooms:
@@ -49,7 +49,7 @@ $ npm install hipchat-client
     - [Get user by mention name](docs/users.md#get-user-by-mention-name)
     - [Get user by name](docs/users.md#get-user-by-name)
     - [Get user by email](docs/users.md#get-user-by-email)
-    - [Get user by status](docs/users.md#get-user-by-status)   
+    - [Get user by status](docs/users.md#get-users-by-status)
 
 More information at [HipChat API Documentation](https://www.hipchat.com/docs/api/)
 
