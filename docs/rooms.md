@@ -13,17 +13,20 @@
 
 #####Example:
 
-```
+Coffeescript
+
+```coffeescript
 hipchat.api.rooms.create
   name: 'Room name'
   owner_user_id: 111111
 , (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.create({
   name: 'Room name',
   owner_user_id: 111111
@@ -47,6 +50,7 @@ hipchat.api.rooms.create({
 - **xmpp_jid** — XMPP/Jabber ID of the room.
 
 
+<hr>
 
 ### Delete a room
 
@@ -57,16 +61,19 @@ hipchat.api.rooms.create({
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.delete
   room_id: 1234
 , (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.delete({
   room_id: 1234
 }, function (err, res) {
@@ -80,6 +87,7 @@ hipchat.api.rooms.delete({
 - **deleted** — Always "true" for now. Any failures will be returned with a non-200 return code.
 
 
+<hr>
 
 ### Fetch chat history of a room
 
@@ -92,17 +100,20 @@ hipchat.api.rooms.delete({
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.history
   room_id: 1234,
   date: '2014-06-17'
 , (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.history({
   room_id: 1234,
   date: '2014-06-17'
@@ -120,6 +131,7 @@ hipchat.api.rooms.history({
 - **file** — Name, size, and URL of uploaded file.
 
 
+<hr>
 
 ### List rooms
 
@@ -129,14 +141,17 @@ hipchat.api.rooms.history({
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.list {}, (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.list({}, function (err, res) {
   if (err) { throw err; }
   console.log(res);
@@ -157,6 +172,7 @@ hipchat.api.rooms.list({}, function (err, res) {
 - **xmpp_jid** — XMPP/Jabber ID of the room. 
 
 
+<hr>
 
 ### Send a message to a room
 
@@ -174,7 +190,9 @@ hipchat.api.rooms.list({}, function (err, res) {
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.message
   room_id: 1234
   from: 'HipChat-Client'
@@ -185,10 +203,11 @@ hipchat.api.rooms.message
 , (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.message({
   room_id: 1234,
   from: 'HipChat-Client',
@@ -207,6 +226,7 @@ hipchat.api.rooms.message({
 - **status** — Delivery status. The only current value is "sent".
 
 
+<hr>
 
 ### Set a room's topic
 
@@ -219,7 +239,9 @@ hipchat.api.rooms.message({
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.topic
   room_id: 1234
   topic: 'Hello World!'
@@ -227,10 +249,11 @@ hipchat.api.rooms.topic
 , (err, res) ->
   throw err if err
   console.log res
-  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.topic({
   room_id: 1234,
   topic: 'Hello World!',
@@ -246,6 +269,7 @@ hipchat.api.rooms.topic({
 - **status** — Delivery status. The only current value is "ok".
 
 
+<hr>
 
 ### Get room details
 
@@ -256,16 +280,19 @@ hipchat.api.rooms.topic({
 
 #####Example:
 
-```
+CoffeeScript
+
+```coffeescript
 hipchat.api.rooms.show
   room_id: 1234
 , (err, res) ->
   throw err if err
-  console.log res
-  
+  console.log res  
 ```
 
-```
+JavaScript
+
+```javascript
 hipchat.api.rooms.show({
   room_id: 1234
 }, function (err, res) {
