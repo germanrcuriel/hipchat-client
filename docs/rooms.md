@@ -1,8 +1,8 @@
 # Rooms
 
-### Create a new room
+## Create a new room
 
-#####Params:
+####Params:
 
 - **name** _(String)_ **Required**. Name of the room.
 - **owner_user_id** _(Number)_ **Required**. User ID of the room's owner.
@@ -11,9 +11,9 @@
 - **guest_access** _(Boolean, Number)_ Whether or not to enable guest access for this room. 0 = false, 1 = true. _(default: 0)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
-Coffeescript
+CoffeeScript
 
 ```coffeescript
 hipchat.api.rooms.create
@@ -36,7 +36,7 @@ hipchat.api.rooms.create({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -68,14 +68,14 @@ hipchat.api.rooms.create({
 
 ===
 
-### Delete a room
+## Delete a room
 
-#####Params:
+####Params:
 
 - **room_id** _(Number)_ **Required**. ID of the room.
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -98,7 +98,7 @@ hipchat.api.rooms.delete({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -110,16 +110,16 @@ hipchat.api.rooms.delete({
 
 ===
 
-### Fetch chat history of a room
+## Fetch chat history of a room
 
-#####Params:
+####Params:
 
 - **room_id** _(Number)_ **Required**. ID of the room.
 - **date** _(String)_ **Required**. Either the date to fetch history for in YYYY-MM-DD format, or "recent" to fetch the latest 75 messages.
 - **timezone** _(String)_ Your timezone. Must be a supported timezone. _(default: UTC)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -144,7 +144,7 @@ hipchat.api.rooms.history({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -189,13 +189,13 @@ hipchat.api.rooms.history({
 
 ===
 
-### List rooms
+## List rooms
 
-#####Params:
+####Params:
 
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -214,7 +214,7 @@ hipchat.api.rooms.list({}, function (err, res) {
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -260,9 +260,9 @@ hipchat.api.rooms.list({}, function (err, res) {
 
 ===
 
-### Send a message to a room
+## Send a message to a room
 
-#####Params:
+####Params:
 
 - **room_id** _(Number)_ **Required**. ID or name of the room.
 - **from** _(String)_ **Required**. Name the message will appear be sent from. Must be less than 15 characters long. May contain letters, numbers, -, _, and spaces.
@@ -274,7 +274,7 @@ hipchat.api.rooms.list({}, function (err, res) {
 - **color** _(String)_ Background color for message. One of "yellow", "red", "green", "purple", "gray", or "random". _(default: yellow)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -307,7 +307,7 @@ hipchat.api.rooms.message({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -319,16 +319,16 @@ hipchat.api.rooms.message({
 
 ===
 
-### Set a room's topic
+## Set a room's topic
 
-#####Params:
+####Params:
 
 - **room_id** _(Number)_ **Required**. ID or name of the room.
 - **topic** _(String)_ **Required**. The topic body. 250 characters max.
 - **from** _(String)_ Name of the service changing the topic. _(default: API)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -355,7 +355,7 @@ hipchat.api.rooms.topic({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -367,14 +367,14 @@ hipchat.api.rooms.topic({
 
 ===
 
-### Get room details
+## Get room details
 
-#####Params:
+####Params:
 
 - **room_id** _(Number)_ **Required**. ID or name of the room.
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -397,7 +397,7 @@ hipchat.api.rooms.show({
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -446,15 +446,15 @@ hipchat.api.rooms.show({
 
 ===
 
-### Get room by name
+## Get room by name
 
-#####Params:
+####Params:
 
 - **name** _(String)_ **Required**. Name of the room.
 - **opts** _(Object)_:
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_ 
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -473,7 +473,7 @@ hipchat.api.rooms.getByName('Ops', function (err, res) {
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {
@@ -505,15 +505,15 @@ hipchat.api.rooms.getByName('Ops', function (err, res) {
 
 ===
 
-### Get room by XMPP/Jabber ID
+## Get room by XMPP/Jabber ID
 
-#####Params:
+####Params:
 
 - **xmpp_jid** _(String)_ **Required**. XMPP/Jabber ID of the room.
 - **opts** _(Object)_:
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_ 
 
-#####Example:
+####Example:
 
 CoffeeScript
 
@@ -532,7 +532,7 @@ hipchat.api.rooms.getByName('10_ops@conf.hipchat.com', null, function (err, res)
 });
 ```
 
-#####Response:
+####Response:
 
 ```json
 {

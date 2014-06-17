@@ -38,9 +38,18 @@ $ npm install hipchat-client
     - [Get room details](docs/rooms.md#get-room-details)
     - [Get room by name](docs/rooms.md#get-room-by-name)
     - [Get room by XMPP/Jabber ID](docs/rooms.md#get-room-by-xmppjabber-id)
-   
+
   - Users:
-    - WIP
+    - [Create a new user](docs/users.md#create-a-new-user)
+    - [Delete a user](docs/users.md#delete-a-user)
+    - [List all users](docs/users.md#list-all-users)
+    - [Get a user's details](docs/users.md#get-a-users-details)
+    - [Undelete a user](docs/users.md#undelete-a-user)
+    - [Update a user](docs/users.md#update-a-user)
+    - [Get user by mention name](docs/users.md#get-user-by-mention-name)
+    - [Get user by name](docs/users.md#get-user-by-name)
+    - [Get user by email](docs/users.md#get-user-by-email)
+    - [Get user by status](docs/users.md#get-user-by-status)   
 
 More information at [HipChat API Documentation](https://www.hipchat.com/docs/api/)
 
