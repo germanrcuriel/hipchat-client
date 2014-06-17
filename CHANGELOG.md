@@ -1,3 +1,15 @@
+## 1.0.2 (2014-06-18)
+
+  Bugfixes:
+
+    - Add .npmignore
+
+## 1.0.1 (2014-06-18)
+
+  Bugfixes:
+
+    - Remove postpublish script
+
 ## 1.0.0 (2014-06-18)
 
 Features:
