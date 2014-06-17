@@ -7,7 +7,7 @@ A HipChat Client
 [![devDependency Status](https://david-dm.org/germanrcuriel/hipchat-client/dev-status.svg)](https://david-dm.org/germanrcuriel/hipchat-client#info=devDependencies)&nbsp;
 [![NPM Version](http://img.shields.io/npm/v/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
 [![Package downloads](http://img.shields.io/npm/dm/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)
-
+[![Travis-CI](https://api.travis-ci.org/germanrcuriel/hipchat-client.svg?branch=master)](https://travis-ci.org/germanrcuriel/hipchat-client)
 [![NPM](https://nodei.co/npm/hipchat-client.png?downloads=true&stars=true)](https://nodei.co/npm/hipchat-client/)
 
 ### Installation
@@ -84,24 +84,6 @@ A HipChat Client
       });
     });
 
-
-## Changelog
-
-### v0.1.1
-
-- Updated the README with some badges
-
-### v0.1.0
-
-- Add `getRoomByIdByJid`, `getRoomParticipantIds`, `getUsers` methods.
-
-### v0.0.9
-
-- Add message format to sendRoomMessage method (default to 'html').
-
-### v0.0.8
-
-- Fix a bug comparing in sendMessageRoom method.
 
 ## MIT License
 
