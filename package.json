@@ -1,20 +1,27 @@
 {
   "name": "hipchat-client",
   "description": "Another Hipchat API Client",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "main": "./lib",
   "dependencies": {
     "coffee-script": "*",
     "superagent": "*"
   },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "sinon": "1.9.1"
+  },
   "engines": {
-    "node": ">= 0.6"
+    "node": ">= 0.8"
   },
   "scripts": {
-    "build": "coffee -c lib/",
-    "clean": "rm lib/*.js",
-    "prepublish": "npm run build"
+    "build": "coffee -c -o lib src",
+    "clean": "rm -rf lib",
+    "prepublish": "npm run build",
+    "postpublish": "npm run clean",
+    "test": "./node_modules/.bin/mocha"
   },
   "keywords": [
     "hipchat",
