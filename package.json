@@ -3,7 +3,7 @@
   "description": "Another Hipchat API Client",
   "version": "0.2.0",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
-  "main": "./lib",
+  "main": "./lib/hipchat.js",
   "dependencies": {
     "coffee-script": "^1.7.1",
     "superagent": "^0.18.0"
