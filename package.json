@@ -5,13 +5,13 @@
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "main": "./lib",
   "dependencies": {
-    "coffee-script": "*",
-    "superagent": "*"
+    "coffee-script": "^1.7.1",
+    "superagent": "^0.18.0"
   },
   "devDependencies": {
-    "mocha": "*",
-    "should": "*",
-    "sinon": "1.9.1"
+    "mocha": "^1.20.1",
+    "should": "^4.0.4",
+    "sinon": "^1.10.2"
   },
   "engines": {
     "node": ">= 0.8"
