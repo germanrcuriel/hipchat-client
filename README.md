@@ -24,25 +24,25 @@ A HipChat Client
 
 ##### Get user email by mention name
 
-    HipChat.getMailByMentionName('mention_name', function (email) {
+    HipChat.getMailByMentionName('mention_name', function (err, email) {
       console.log(email);
     });
 
 ##### Get room id by room name
 
-    HipChat.getRoomByName('room_name', function (id) {
+    HipChat.getRoomByName('room_name', function (err, id) {
       console.log(id);
     });
 
 ##### Get room id by room Jid
 
-    HipChat.getRoomByIdByJid('123_room@conf.hipchat.com', function (id)) {
+    HipChat.getRoomByIdByJid('123_room@conf.hipchat.com', function (err, id)) {
       console.log(id);
     });
 
 ##### Get list of room participant Ids
 
-    HipChat.getRoomParticipantIds(room_api_id, function (ids) {
+    HipChat.getRoomParticipantIds(room_api_id, function (err, ids) {
       for (var i=0; i < ids.length; i++) {
         console.log(ids[i]);
       }
@@ -50,7 +50,7 @@ A HipChat Client
 
 ##### Get list of all users in your account
 
-    HipChat.getUsers(function (users) {
+    HipChat.getUsers(function (err, users) {
       for (var i=0; i < users.length; i++) {
         console.log(users[i].name);
       }
@@ -65,13 +65,13 @@ A HipChat Client
       notify: 1
     };
 
-    HipChat.sendRoomMessage(message, room_id, params, function (success) {
-      console.log(success);
+    HipChat.sendRoomMessage(message, room_id, params, function (err) {
+      if (err) throw err;
     });
 
 ##### Example: Send Message to a Room without room_id
 
-    HipChat.getRoomByName('room_name', function (id) {
+    HipChat.getRoomByName('room_name', function (err, id) {
       var message = "<a href='http://hipchat.com'>HipChat</a>";
       var params = {
         from: 'HipChat',
@@ -79,8 +79,8 @@ A HipChat Client
         notify: 1
       };
 
-      HipChat.sendRoomMessage(message, id, params, function (success) {
-        console.log(success);
+      HipChat.sendRoomMessage(message, id, params, function (err) {
+        if (err) throw err;
       });
     });
 

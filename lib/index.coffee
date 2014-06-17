@@ -1,5 +1,14 @@
 request = require 'superagent'
 
+# generate an error from the response
+generateError = (res) ->
+  body = res.body and res.body.error or { message: 'FLAGRANT ERROR' }
+  err = new Error(body.message)
+
+  Object.keys(body).forEach (k) -> err[k] = body[k] if k is not 'message'
+
+  err
+
 class HipChat
   constructor: (@token) ->
     unless @token
@@ -25,14 +34,14 @@ class HipChat
       .query({ auth_token: @options.token })
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
           email = user.email for user in res.body.users when user.mention_name is name
 
           if email
-            cb email
+            cb null, email
           else
-            cb false
+            cb new Error('Could not find an email in hipchat response')
 
   getRoomByName: (name, cb) ->
     unless name
@@ -45,7 +54,7 @@ class HipChat
       .query({ auth_token: @options.token })
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
           cb room.room_id for room in res.body.rooms when room.name is name
 
@@ -55,10 +64,10 @@ class HipChat
       .query({auth_token: @options.token})
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
           room_id = room.room_id for room in res.body.rooms when room.xmpp_jid is jid
-          cb room_id
+          cb null, room_id
 
   getRoomParticipantIds: (room_id, cb) ->
     request
@@ -66,10 +75,10 @@ class HipChat
       .query( {room_id: room_id, auth_token: @options.token} )
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
           ids = (p.user_id for p in res.body.room.participants)
-          cb ids
+          cb null, ids
 
   getUsers: (cb) ->
     request
@@ -77,9 +86,9 @@ class HipChat
       .query( {auth_token: @options.token} )
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
-          cb res.body.users
+          cb null, res.body.users
 
   sendRoomMessage: (message, room_id, params, cb) ->
     unless message
@@ -106,9 +115,9 @@ class HipChat
       .send(data)
       .end (res) ->
         if !res.ok
-          cb false
+          cb generateError res
         else
-          cb true
+          cb null
 
 
 module.exports = (auth_token) ->
