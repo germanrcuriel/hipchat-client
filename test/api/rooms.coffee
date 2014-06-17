@@ -4,11 +4,12 @@ sinon = require 'sinon'
 describe 'Rooms resource', =>
 
   @fixtures = require './fixtures/rooms'
+
   @data =
-    room_id: 1
-    owner_user_id: 1
-    date: '2014-06-17'
     name: 'Test Room'
+    owner_user_id: 1
+    room_id: 1
+    date: '2014-06-17'
     from: 'HipChat-Client'
     message: 'Hello World!'
     topic: 'Hello!'
@@ -23,15 +24,15 @@ describe 'Rooms resource', =>
     @rooms.should.be.an.instanceof(Rooms)
 
   describe '#create', =>
-    it 'returns the history messages', =>
+    it 'returns the created room', =>
       req = sinon.stub(@rooms, 'request')
-      req.yields null, @fixtures.room
+      req.yields null, @fixtures.create
 
       @rooms.create
         name: @data.name
         owner_user_id: @data.owner_user_id
       , (err, res) =>
-        res.should.be.exactly @fixtures.room
+        res.should.be.exactly @fixtures.create
 
     it 'throws an error when a required param is missing', =>
       ( => @rooms.create name: @data.name).should.throw(/^Missing/)
@@ -39,7 +40,7 @@ describe 'Rooms resource', =>
       ( => @rooms.create()).should.throw(/^Missing/)
 
   describe '#delete', =>
-    it 'returns the history messages', =>
+    it 'returns the delete status', =>
       req = sinon.stub(@rooms, 'request')
       req.yields null, @fixtures.delete
 
@@ -70,10 +71,10 @@ describe 'Rooms resource', =>
   describe '#list', =>
     it 'returns the list data', =>
       req = sinon.stub(@rooms, 'request')
-      req.yields null, @fixtures.room
+      req.yields null, @fixtures.list
 
       @rooms.list {}, (err, res) =>
-        res.should.be.exactly @fixtures.room
+        res.should.be.exactly @fixtures.list
 
   describe '#message', =>
     it 'returns the message status', =>
@@ -112,14 +113,12 @@ describe 'Rooms resource', =>
   describe '#show', =>
     it 'returns the room details', =>
       req = sinon.stub(@rooms, 'request')
-      req.yields null, @fixtures.room
+      req.yields null, @fixtures.show
 
       @rooms.show
         room_id: @data.room_id
       , (err, res) =>
-        res.should.be.exactly @fixtures.room
+        res.should.be.exactly @fixtures.show
 
     it 'throws an error when a required param is missing', =>
       ( => @rooms.show()).should.throw(/^Missing/)
-
-

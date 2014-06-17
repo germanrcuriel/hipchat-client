@@ -1,18 +1,96 @@
 Users = require '../../src/api/users'
 sinon = require 'sinon'
 
-describe 'Users resource', ->
+describe 'Users resource', =>
 
-  beforeEach ->
+  @fixtures = require './fixtures/users'
+
+  @data =
+    user_id: 1
+    email: 'new@company.com'
+    name: 'New Guy'
+
+  beforeEach =>
     @users = new Users
 
-  afterEach ->
+  afterEach =>
     @users = null
 
-  it 'is an instance of Users class', ->
+  it 'is an instance of Users class', =>
     @users.should.be.an.instanceof(Users)
 
-  it 'throws an error when a required param is missing', ->
-    ( => @users.create email: 'bla@bla.com').should.throw(/^Missing/)
-    ( => @users.create name: 'HipChat').should.throw(/^Missing/)
-    ( => @users.create() ).should.throw(/^Missing/)
+  describe '#create', =>
+    it 'returns the created user', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.create
+
+      @users.create
+        email: @data.email
+        name: @data.name
+      , (err, res) =>
+        res.should.be.exactly @fixtures.create
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.create email: @data.email).should.throw(/^Missing/)
+      ( => @users.create name: @data.name).should.throw(/^Missing/)
+      ( => @users.create()).should.throw(/^Missing/)
+
+  describe '#delete', =>
+    it 'returns the deleted status', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.delete
+
+      @users.delete
+        user_id: @data.user_id
+      , (err, res) =>
+        res.should.be.exactly @fixtures.delete
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.create()).should.throw(/^Missing/)
+
+  describe '#list', =>
+    it 'returns the users', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.list
+
+      @users.list {}, (err, res) =>
+        res.should.be.exactly @fixtures.list
+
+  describe '#show', =>
+    it 'returns the user details', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.show
+
+      @users.show
+        user_id: @data.user_id
+      , (err, res) =>
+        res.should.be.exactly @fixtures.show
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.create()).should.throw(/^Missing/)
+
+  describe '#undelete', =>
+    it 'returns the undeleted status', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.undelete
+
+      @users.undelete
+        user_id: @data.user_id
+      , (err, res) =>
+        res.should.be.exactly @fixtures.undelete
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.create()).should.throw(/^Missing/)
+
+  describe '#update', =>
+    it 'returns the updated user', =>
+      req = sinon.stub(@users, 'request')
+      req.yields null, @fixtures.update
+
+      @users.update
+        user_id: @data.user_id
+      , (err, res) =>
+        res.should.be.exactly @fixtures.update
+
+    it 'throws an error when a required param is missing', =>
+      ( => @users.create()).should.throw(/^Missing/)
