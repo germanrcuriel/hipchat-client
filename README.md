@@ -1,118 +1,73 @@
 hipchat-client
 ==============
 
-A HipChat Client
-
-[![Dependency Status](https://david-dm.org/germanrcuriel/hipchat-client.svg)](https://david-dm.org/germanrcuriel/hipchat-client)&nbsp;
-[![devDependency Status](https://david-dm.org/germanrcuriel/hipchat-client/dev-status.svg)](https://david-dm.org/germanrcuriel/hipchat-client#info=devDependencies)&nbsp;
-[![NPM Version](http://img.shields.io/npm/v/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
+[![NPM Version](https://badge.fury.io/js/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
+[![Build Status](https://api.travis-ci.org/germanrcuriel/hipchat-client.svg?branch=master)](https://travis-ci.org/germanrcuriel/hipchat-client)
 [![Package downloads](http://img.shields.io/npm/dm/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)
 
-[![NPM](https://nodei.co/npm/hipchat-client.png?downloads=true&stars=true)](https://nodei.co/npm/hipchat-client/)
+```javascript
+var HipChatClient = require('hipchat-client');
 
-### Installation
+var hipchat = new HipChatClient('auth_token');
 
-    $ npm install hipchat-client
+hipchat.api.rooms.message({
+  room_id: 'Frontend',
+  from: 'HipChat Client',
+  message: 'Hello world!'
+}, function (err, res) {
+  if (err) { throw err; }
+  console.log(res);
+});
+```
 
-### Usage
+## Installation
 
-    var HipchatClient = require('hipchat-client');
+```sh
+$ npm install hipchat-client
+```
 
-##### Constructor
+## API and documentation
 
-    var HipChat = new HipchatClient(auth_token);
+  - Rooms:
+    - [Create a new room](docs/rooms.md#create-a-new-room)
+    - [Delete a room](docs/rooms.md#delete-a-room)
+    - [Fetch chat history of a room](docs/rooms.md#fetch-chat-history-of-a-room)
+    - [List rooms](docs/rooms.md#list-rooms)
+    - [Send a message to a room](docs/rooms.md#send-a-message-to-a-room)
+    - [Set a room's topic](docs/rooms.md#set-a-rooms-topic)
+    - [Get room details](docs/rooms.md#get-room-details)
+    - [Get room by name](docs/rooms.md#get-room-by-name)
+    - [Get room by XMPP/Jabber ID](docs/rooms.md#get-room-by-xmppjabber-id)
 
-##### Get user email by mention name
+  - Users:
+    - [Create a new user](docs/users.md#create-a-new-user)
+    - [Delete a user](docs/users.md#delete-a-user)
+    - [List all users](docs/users.md#list-all-users)
+    - [Get a user's details](docs/users.md#get-a-users-details)
+    - [Undelete a user](docs/users.md#undelete-a-user)
+    - [Update a user](docs/users.md#update-a-user)
+    - [Get user by mention name](docs/users.md#get-user-by-mention-name)
+    - [Get user by name](docs/users.md#get-user-by-name)
+    - [Get user by email](docs/users.md#get-user-by-email)
+    - [Get user by status](docs/users.md#get-users-by-status)
 
-    HipChat.getMailByMentionName('mention_name', function (err, email) {
-      console.log(email);
-    });
-
-##### Get room id by room name
-
-    HipChat.getRoomByName('room_name', function (err, id) {
-      console.log(id);
-    });
-
-##### Get room id by room Jid
-
-    HipChat.getRoomByIdByJid('123_room@conf.hipchat.com', function (err, id)) {
-      console.log(id);
-    });
-
-##### Get list of room participant Ids
-
-    HipChat.getRoomParticipantIds(room_api_id, function (err, ids) {
-      for (var i=0; i < ids.length; i++) {
-        console.log(ids[i]);
-      }
-    });
-
-##### Get list of all users in your account
-
-    HipChat.getUsers(function (err, users) {
-      for (var i=0; i < users.length; i++) {
-        console.log(users[i].name);
-      }
-    });
-
-##### Send message to a room
-
-    var message = "<a href='http://hipchat.com'>HipChat</a>";
-    var params = {
-      from: 'HipChat',
-      color: 'yellow',
-      notify: 1
-    };
-
-    HipChat.sendRoomMessage(message, room_id, params, function (err) {
-      if (err) throw err;
-    });
-
-##### Example: Send Message to a Room without room_id
-
-    HipChat.getRoomByName('room_name', function (err, id) {
-      var message = "<a href='http://hipchat.com'>HipChat</a>";
-      var params = {
-        from: 'HipChat',
-        color: 'yellow',
-        notify: 1
-      };
-
-      HipChat.sendRoomMessage(message, id, params, function (err) {
-        if (err) throw err;
-      });
-    });
+More information at [HipChat API Documentation](https://www.hipchat.com/docs/api/)
 
 
-## Changelog
+## Running Tests
 
-### v0.1.2
+To run the test suite, first invoke the following command within the repo, installing the development dependencies:
 
-- Update callbacks with error and response (node.js style)
+```sh
+$ npm install
+```
 
-### v0.1.1
+Then run the tests:
 
-- Updated the README with some badges
+```sh
+$ npm test
+```
 
-### v0.1.0
+## License
 
-- Add `getRoomByIdByJid`, `getRoomParticipantIds`, `getUsers` methods.
-
-### v0.0.9
-
-- Add message format to sendRoomMessage method (default to 'html').
-
-### v0.0.8
-
-- Fix a bug comparing in sendMessageRoom method.
-
-## MIT License
-
-Copyright (c) 2013 <germanrcuriel@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[MIT](LICENSE.md)
