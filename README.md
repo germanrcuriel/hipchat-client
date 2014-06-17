@@ -87,6 +87,10 @@ A HipChat Client
 
 ## Changelog
 
+### v0.1.2
+
+- Update callbacks with error and response (node.js style)
+
 ### v0.1.1
 
 - Updated the README with some badges
