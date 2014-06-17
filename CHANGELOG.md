@@ -1,3 +1,26 @@
+## 1.0.0 (2014-06-??)
+
+Features:
+
+  - Refactor of all the code, including breaking changes.
+  - Support to all methods of the official HipChat API
+  - Added the following custom methods:
+    - `rooms.getByName`
+    - `rooms.getByXmppJid`
+    - `users.getByMentionName`
+    - `users.getByName`
+    - `users.getByEmail`
+    - `users.getByStatus`
+  - Added tests (finally)
+  - Added documentation on docs folder
+  - Updated README
+
+## 0.1.2 (2014-06-17)
+
+Bugfixes:
+
+  - Update callbacks with error and response (node.js style)
+
 ## 0.1.1 (2014-05-05)
 
   - Update README with some badges
