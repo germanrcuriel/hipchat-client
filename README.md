@@ -3,14 +3,12 @@ hipchat-client
 
 A HipChat Client
 
-[![Dependency Status](https://david-dm.org/germanrcuriel/hipchat-client.svg)](https://david-dm.org/germanrcuriel/hipchat-client)&nbsp;
-[![devDependency Status](https://david-dm.org/germanrcuriel/hipchat-client/dev-status.svg)](https://david-dm.org/germanrcuriel/hipchat-client#info=devDependencies)&nbsp;
-[![NPM Version](http://img.shields.io/npm/v/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
+[![NPM Version](https://badge.fury.io/js/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)&nbsp;
+[![Build Status](https://api.travis-ci.org/germanrcuriel/hipchat-client.svg?branch=master)](https://travis-ci.org/germanrcuriel/hipchat-client)
 [![Package downloads](http://img.shields.io/npm/dm/hipchat-client.svg)](https://npmjs.org/package/hipchat-client)
-[![Travis-CI](https://api.travis-ci.org/germanrcuriel/hipchat-client.svg?branch=master)](https://travis-ci.org/germanrcuriel/hipchat-client)
-[![NPM](https://nodei.co/npm/hipchat-client.png?downloads=true&stars=true)](https://nodei.co/npm/hipchat-client/)
 
-### Installation
+
+## Installation
 
     $ npm install hipchat-client
 
@@ -84,13 +82,20 @@ A HipChat Client
       });
     });
 
+## Running Tests
 
-## MIT License
+To run the test suite, first invoke the following command within the repo, installing the development dependencies:
 
-Copyright (c) 2013 <germanrcuriel@gmail.com>
+```sh
+$ npm install
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Then run the tests:
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+```sh
+$ npm test
+```
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## License
+
+[MIT](LICENSE.md)
