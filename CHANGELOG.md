@@ -1,3 +1,9 @@
+## 1.0.3 (2014-03-17)
+
+  Bugfixes:
+
+    - Move `coffee-script` dependency to `devDependencies`
+
 ## 1.0.2 (2014-06-18)
 
   Bugfixes:

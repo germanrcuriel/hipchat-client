@@ -1,14 +1,14 @@
 {
   "name": "hipchat-client",
   "description": "A Hipchat API Client",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Germán Robledo <germanrcuriel@gmail.com>",
   "main": "./lib/hipchat.js",
   "dependencies": {
-    "coffee-script": "^1.7.1",
     "superagent": "^0.18.0"
   },
   "devDependencies": {
+    "coffee-script": "^1.7.1",
     "mocha": "^1.20.1",
     "should": "^4.0.4",
     "sinon": "^1.10.2"
