@@ -1,3 +1,9 @@
+## 1.0.4 (2014-04-18)
+
+  Bugfixes:
+
+    - Set up a default error
+
 ## 1.0.3 (2014-03-17)
 
   Bugfixes:
