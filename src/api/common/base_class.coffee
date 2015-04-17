@@ -6,6 +6,11 @@ class BaseClass
 
   throwError: (error) ->
     {error} = error
+
+    error.code or= ''
+    error.type or= 'Error'
+    error.message or= 'Server error'
+
     new Error "#{error.code} (#{error.type}) - #{error.message}"
 
   request: (method = 'GET', url = '', params = {}, callback) ->
