@@ -7,6 +7,7 @@ class BaseClass
   throwError: (error) ->
     {error} = error
 
+    error or= {}
     error.code or= ''
     error.type or= 'Error'
     error.message or= 'Server error'
