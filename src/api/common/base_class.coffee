@@ -6,7 +6,10 @@ class BaseClass
 
   throwError: (error) ->
     {error} = error
-
+    
+    # HipChat servers are not returning expected error format
+    return new Error error unless error?
+    
     error.code or= ''
     error.type or= 'Error'
     error.message or= 'Server error'
