@@ -5,8 +5,11 @@ class BaseClass
   constructor: (@hipchat) ->
 
   throwError: (error) ->
+    # HipChat servers are not returning expected error format
+    return new Error error unless error.error?
+  
     {error} = error
-
+  
     error.code or= ''
     error.type or= 'Error'
     error.message or= 'Server error'
