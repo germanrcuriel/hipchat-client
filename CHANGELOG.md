@@ -1,3 +1,9 @@
+## 1.0.5 (2016-03-16)
+
+  Bugfixes:
+
+    - Manage unexpected hipchat errors
+
 ## 1.0.4 (2014-04-18)
 
   Bugfixes:
