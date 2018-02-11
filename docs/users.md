@@ -2,7 +2,7 @@
 
 ## Create a new user
 
-####Params:
+#### Params:
 
 - **email** _(String)_ **Required**. User's email.
 - **name** _(Number)_ **Required**. User's full name.
@@ -13,7 +13,7 @@
 - **timezone** _(String)_ User's timezone. Must be a [supported timezone](https://www.hipchat.com/docs/api/timezones). _(default: UTC)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -38,7 +38,7 @@ hipchat.api.users.create({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -70,12 +70,12 @@ hipchat.api.users.create({
 
 ## Delete a user
 
-####Params:
+#### Params:
 
 - **user_id** _(Number)_ **Required**. ID or email address of the user.
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -98,7 +98,7 @@ hipchat.api.users.delete({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -112,12 +112,12 @@ hipchat.api.users.delete({
 
 ## List all users
 
-####Params:
+#### Params:
 
 - **include_deleted** _(Boolean, Number)_ Include deleted users in response. 0 = false, 1 = true. _(default: 0)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -136,7 +136,7 @@ hipchat.api.users.list({}, function (err, res) {
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -204,12 +204,12 @@ hipchat.api.users.list({}, function (err, res) {
 
 ## Get a user's details
 
-####Params:
+#### Params:
 
 - **user_id** _(Number)_ **Required**. ID or email address of the user.
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -232,7 +232,7 @@ hipchat.api.rooms.list({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -268,12 +268,12 @@ hipchat.api.rooms.list({
 
 ## Undelete a user
 
-####Params:
+#### Params:
 
 - **user_id** _(Number)_ **Required**. ID or email address of the user.
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -296,7 +296,7 @@ hipchat.api.users.undelete({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -310,7 +310,7 @@ hipchat.api.users.undelete({
 
 ## Update a user
 
-####Params:
+#### Params:
 
 - **user_id** _(Number)_ **Required**. User ID.
 - **email** _(String)_ User's email.
@@ -322,7 +322,7 @@ hipchat.api.users.undelete({
 - **timezone** _(String)_ User's timezone. Must be a [supported timezone](https://www.hipchat.com/docs/api/timezones). _(default: UTC)_
 - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -347,7 +347,7 @@ hipchat.api.rooms.topic({
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -379,14 +379,14 @@ hipchat.api.rooms.topic({
 
 ## Get user by mention name
 
-####Params:
+#### Params:
 
 - **mention_name** _(String)_ **Required**. User's @mention name.
 - **opts** _(Object)_:
   - **include_deleted** _(Boolean, Number)_ Include deleted users in response. 0 = false, 1 = true. _(default: 0)_
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -405,7 +405,7 @@ hipchat.api.users.getByMentionName('garret', null, function (err, res) {
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -437,14 +437,14 @@ hipchat.api.users.getByMentionName('garret', null, function (err, res) {
 
 ## Get user by name
 
-####Params:
+#### Params:
 
 - **name** _(String)_ **Required**. User's full name.
 - **opts** _(Object)_:
   - **include_deleted** _(Boolean, Number)_ Include deleted users in response. 0 = false, 1 = true. _(default: 0)_
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -463,7 +463,7 @@ hipchat.api.users.getByName('Garret Heaton', null, function (err, res) {
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -495,14 +495,14 @@ hipchat.api.users.getByName('Garret Heaton', null, function (err, res) {
 
 ## Get user by email
 
-####Params:
+#### Params:
 
 - **email** _(String)_ **Required**. User's email.
 - **opts** _(Object)_:
   - **include_deleted** _(Boolean, Number)_ Include deleted users in response. 0 = false, 1 = true. _(default: 0)_
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -521,7 +521,7 @@ hipchat.api.users.getByEmail('new-email-address@hipchat.com', null, function (er
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
@@ -553,14 +553,14 @@ hipchat.api.users.getByEmail('new-email-address@hipchat.com', null, function (er
 
 ## Get users by status
 
-####Params:
+#### Params:
 
 - **status** _(String)_ **Required**. User's current status. Either offline, away, dnd, or available.
 - **opts** _(Object)_:
   - **include_deleted** _(Boolean, Number)_ Include deleted users in response. 0 = false, 1 = true. _(default: 0)_
   - **format** _(String)_ Desired response format: json or xml. _(default: json)_
 
-####Example:
+#### Example:
 
 CoffeeScript
 
@@ -579,7 +579,7 @@ hipchat.api.users.getByStatus('available', null, function (err, res) {
 });
 ```
 
-####Response:
+#### Response:
 
 ```json
 {
