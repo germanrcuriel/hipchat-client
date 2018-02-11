@@ -66,7 +66,7 @@ hipchat.api.users.create({
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Delete a user
 
@@ -108,7 +108,7 @@ hipchat.api.users.delete({
 
 - **deleted** — Always "true" for now. Any failures will be returned with a non-200 return code.
 
-===
+---
 
 ## List all users
 
@@ -200,7 +200,7 @@ hipchat.api.users.list({}, function (err, res) {
 - **is_group_admin** — '1' if the user is an admin, otherwise '0'.
 - **is_deleted** — '1' if the account is deleted, otherwise '0'.
 
-===
+---
 
 ## Get a user's details
 
@@ -264,7 +264,7 @@ hipchat.api.rooms.list({
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Undelete a user
 
@@ -306,7 +306,7 @@ hipchat.api.users.undelete({
 
 - **undeleted** — Always "true" for now. Any failures will be returned with a non-200 return code.
 
-===
+---
 
 ## Update a user
 
@@ -375,7 +375,7 @@ hipchat.api.rooms.topic({
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Get user by mention name
 
@@ -433,7 +433,7 @@ hipchat.api.users.getByMentionName('garret', null, function (err, res) {
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Get user by name
 
@@ -491,7 +491,7 @@ hipchat.api.users.getByName('Garret Heaton', null, function (err, res) {
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Get user by email
 
@@ -549,7 +549,7 @@ hipchat.api.users.getByEmail('new-email-address@hipchat.com', null, function (er
 - **status_message** — User's current status message.
 - **is_group_admin** — Whether or not this user is an admin of the group.
 
-===
+---
 
 ## Get users by status
 

@@ -66,7 +66,7 @@ hipchat.api.rooms.create({
 - **guest_access_url** — URL for guest access, if enabled.
 - **xmpp_jid** — XMPP/Jabber ID of the room.
 
-===
+---
 
 ## Delete a room
 
@@ -108,7 +108,7 @@ hipchat.api.rooms.delete({
 
 - **deleted** — Always "true" for now. Any failures will be returned with a non-200 return code.
 
-===
+---
 
 ## Fetch chat history of a room
 
@@ -187,7 +187,7 @@ hipchat.api.rooms.history({
 - **message** — Message body.
 - **file** — Name, size, and URL of uploaded file.
 
-===
+---
 
 ## List rooms
 
@@ -258,7 +258,7 @@ hipchat.api.rooms.list({}, function (err, res) {
 - **guest_access_url** — URL for guest access, if enabled.
 - **xmpp_jid** — XMPP/Jabber ID of the room. 
 
-===
+---
 
 ## Send a message to a room
 
@@ -317,7 +317,7 @@ hipchat.api.rooms.message({
 
 - **status** — Delivery status. The only current value is "sent".
 
-===
+---
 
 ## Set a room's topic
 
@@ -365,7 +365,7 @@ hipchat.api.rooms.topic({
 
 - **status** — Delivery status. The only current value is "ok".
 
-===
+---
 
 ## Get room details
 
@@ -444,7 +444,7 @@ hipchat.api.rooms.show({
 - **guest_access_url** — URL for guest access, if enabled.
 - **xmpp_jid** — XMPP/Jabber ID of the room.
 
-===
+---
 
 ## Get room by name
 
@@ -503,7 +503,7 @@ hipchat.api.rooms.getByName('Ops', function (err, res) {
 - **guest_access_url** — URL for guest access, if enabled.
 - **xmpp_jid** — XMPP/Jabber ID of the room.
 
-===
+---
 
 ## Get room by XMPP/Jabber ID
 
